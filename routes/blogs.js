@@ -1,6 +1,6 @@
 var express = require("express");
 var router = express.Router();
-var Post  = require("../models/Post");
+var Blog  = require("../models/Blog");
 
 
 function makeError(res, message, status) {
@@ -13,10 +13,10 @@ function makeError(res, message, status) {
 
 // Index
 router.get('/', function(req, res, next){
-  // get all the posts and render the incex view
- Post.find({})
- .then(function(posts) {
-  res.render('posts/index', { posts: posts });
+  // get all the blogs and render the incex view
+ Blog.find({})
+ .then(function(blogs) {
+  res.render('blogs/index', { blogs: blogs });
 }, function(err) {
   return next(err);
  });
@@ -24,15 +24,15 @@ router.get('/', function(req, res, next){
 
 // New
 router.get('/new', function(req, res, next){
- res.render('posts/new');
+ res.render('blogs/new');
 });
 
 // show
 router.get('/:id', function(req, res, next){
- Post.findById(req.params.id)
- .then(function(post){
-  // if(!post) return next(makeError(res, 'Document not found', 404));
-  res.render('posts/show', { post: post });
+ Blog.findById(req.params.id)
+ .then(function(blog){
+  // if(!blog) return next(makeError(res, 'Document not found', 404));
+  res.render('blogs/show', { blog: blog });
 }, function(err) {
   return next(err);
  });
@@ -41,13 +41,13 @@ router.get('/:id', function(req, res, next){
 // create
 router.post('/', function(req, res, next) {
   console.log('req.body:', req.body);
-  let post = {
+  let blog = {
     title: req.body.title,
     body: req.body.body
   };
- Post.create(post)
- .then(function(post) {
-   res.redirect('/posts');
+ Blog.create(blog)
+ .then(function(blog) {
+   res.redirect('/blogs');
 }, function(err) {
   return next(err)
  });
@@ -55,10 +55,10 @@ router.post('/', function(req, res, next) {
 
 // edit
 router.get('/:id/edit', function(req, res, next){
- Post.findById(req.params.id)
- .then(function(post) {
-   if(!post) return next(makeError(res, 'Document not found', 404));
-   res.render('posts/edit', { post: post });
+ Blog.findById(req.params.id)
+ .then(function(blog) {
+   if(!blog) return next(makeError(res, 'Document not found', 404));
+   res.render('blogs/edit', { blog: blog });
  }, function(err) {
    return next(err);
   });
@@ -67,16 +67,16 @@ router.get('/:id/edit', function(req, res, next){
 // update
 router.put('/:id', function(req, res, next) {
   console.log('update got id:', req.params.id);
-  Post.findById(req.params.id)
-  .then(function(post) {
-    if (!post) return next(makeError(res, 'Document not found', 404));
-    post.title = req.body.title;
-    post.body  = req.body.body;
-    return post.save();
+  blog.findById(req.params.id)
+  .then(function(blog) {
+    if (!blog) return next(makeError(res, 'Document not found', 404));
+    blog.title = req.body.title;
+    blog.body  = req.body.body;
+    return blog.save();
   })
   .then(function(saved) {
-    console.log('updated post:', saved);
-    res.redirect('/posts/'+req.params.id);
+    console.log('updated blog:', saved);
+    res.redirect('/blogs/'+req.params.id);
   }, function(err) {
     return next(err);
   });
@@ -84,9 +84,9 @@ router.put('/:id', function(req, res, next) {
 
 // destroy
 router.delete('/:id', function(req, res, next) {
- Post.findByIdAndRemove(req.params.id)
+ Blog.findByIdAndRemove(req.params.id)
  .then(function(){
-  res.redirect('/posts');
+  res.redirect('/blogs');
 }, function(err) {
   return next(err);
  });

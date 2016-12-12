@@ -1,7 +1,7 @@
 var mongoose = require('mongoose')
 
 // schema
-var postSchema = new mongoose.Schema({
+var blogSchema = new mongoose.Schema({
   title: { type: String, required: true },
   body: { type: String }
 },
@@ -16,14 +16,14 @@ function date2String(date) {
   return date.toLocaleDateString(options);
 }
 
-postSchema.methods.getCreatedAt = function() {
+blogSchema.methods.getCreatedAt = function() {
   return date2String(this.createdAt);
 };
 
-postSchema.methods.getUpdatedAt = function() {
+blogSchema.methods.getUpdatedAt = function() {
   return date2String(this.updatedAt);
 };
 
 
 // model & export
-module.exports = mongoose.model('post', postSchema);
+module.exports = mongoose.model('blog', blogSchema);

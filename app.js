@@ -15,6 +15,7 @@ var app              = express();
 var homeRouter  = require('./routes/home');
 var usersRouter = require('./routes/users');
 var postsRouter = require('./routes/posts');
+var blogsRouter = require('./routes/blogs');
 
 // Connect to database
 if (process.env.MONGODB_URI) {
@@ -70,6 +71,7 @@ app.use(function (req, res, next) {
 app.use('/', homeRouter);
 app.use('/users', usersRouter);
 app.use('/posts', postsRouter);
+app.use('/blogs', blogsRouter);
 
 
 // catch 404 and forward to error handler
