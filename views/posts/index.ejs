@@ -32,12 +32,15 @@
         <a href="/posts/<%= post._id %>"><div><%= post.title %></div></a>
        </td>
        <td class="date">
-        <%= post.createdDate %>
+        <%= post.createdAt %>
        </td>
       </tr>
      <% }) %>
     </tbody>
    </table>
   </div> <!-- container end -->
+  <footer>
+    <% include ../partials/footer %>
+  </footer>
  </body>
 </html>

@@ -1,52 +1,29 @@
 var mongoose = require('mongoose')
 
 // schema
-var postSchema = mongoose.Schema({ 
- title:{type:String, required:true},
- body:{type:String},
- createdAt:{type:Date, default:Date.now},
- updatedAt:{type:Date},
-},{
- toObject:{virtuals:true}
+var postSchema = new mongoose.Schema({
+  title: { type: String, required: true },
+  body: { type: String },
+  createdAt : { type: Date, default: Date.now},
+  updatedAt : { type: Date }
 });
 
-// virtuals
-postSchema.virtual("createdDate")
-.get(function(){
- return getDate(this.createdAt);
-});
+function date2String(date) {
+  var options = {
+    year: 'numeric', month: 'short',
+    day: 'numeric', hour: '2-digit', minute: '2-digit'
+  };
+  return date.toLocaleDateString(options);
+}
 
-postSchema.virtual("createdTime")
-.get(function(){
- return getTime(this.createdAt);
-});
+postSchema.methods.getCreatedAt = function() {
+  return date2String(this.createdAt);
+};
 
-postSchema.virtual("updatedDate")
-.get(function(){
- return getDate(this.updatedAt);
-});
+postSchema.methods.getUpdatedAt = function() {
+  return date2String(this.updatedAt);
+};
 
-postSchema.virtual("updatedTime")
-.get(function(){
- return getTime(this.updatedAt);
-});
 
 // model & export
-var Post = mongoose.model("post", postSchema);
-module.exports = Post;
-
-
-// functions
-function getDate(dateObj){
- if(dateObj instanceof Date)
-  return dateObj.getFullYear() + "-" + get2digits(dateObj.getMonth()+1)+ "-" + get2digits(dateObj.getDate());
-}
-
-function getTime(dateObj){
- if(dateObj instanceof Date)
-  return get2digits(dateObj.getHours()) + ":" + get2digits(dateObj.getMinutes())+ ":" + get2digits(dateObj.getSeconds());
-}
-
-function get2digits(num){
- return ("0" + num).slice(-2);
-}
+module.exports = mongoose.model('post', postSchema);

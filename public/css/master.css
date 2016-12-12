@@ -1,116 +1,122 @@
 /* global style */
 .buttons {
- margin: 10px 0;
+ margin: 10px 100px 10px 0;
  padding: 0 5px;
  text-align: right;
+
 }
 
 .buttons form{
  display: inline-block;
 }
 
-.contentBox{
- border-top: 1px solid #ccc;
- border-bottom: 1px solid #ccc;
+
+/* Signup and login */
+.contentBox {
+/*border-top: 2px solid #ccc;*/
+/*border-bottom: 2px solid #ccc;*/
+margin : 10px 20px 15px 20px;
+
 }
 .contentBoxTop {
- font-size: 14px;
- font-weight: 600;
- margin: 0;
- border-bottom: 1px solid #ccc;
- background-color: #F5F5F5;
- padding: 6px 15px;
+font-size: 30px;
+/*border-bottom: 1px solid #ccc;*/
+/*background-color: skyblue;*/
+
 }
 
-.contentBox{
- border-top: 1px solid #ccc;
- border-bottom: 1px solid #ccc;
-}
-.contentBoxTop {
- font-size: 15px;
- font-weight: 600;
- margin: 0;
- border-bottom: 1px solid #ccc;
- background-color: #F5F5F5;
- padding: 6px 15px;
-}
 /* home style */
 .home h1{
   color : pink;
 }
 
+.title {
+  font-family: 'Satisfy', cursive;
+  font-size: 20px;
+}
+
+.footerJM {
+  font-family: 'Satisfy', cursive;
+  font-size: 15px;
+  position: absolute;
+  bottom: 10px;
+  left: 34em;
+
+}
 
 /* post style */
 .post {
  /*max-width: 670px;*/
- font-family: 'Open Sans', sans-serif;
- font-size: 15px;
-}
+ font-family: 'Satisfy', cursive;
 
-.post h2 {
- color: tomato;
- text-align: center;
+ }
+
+.post h1 {
+ color: gray;
+ /*text-align: center;*/
 }
 .post .post-body{
  white-space: pre-line; /* 줄바꿈 */
  padding: 6px 15px 20px;
 }
-.post .posts .date{
- width: 100px;
+.post .posts .date {
+ text-align: right;
+ padding-right: 50px;
+ font-size: 15px;
+ margin: 0;
 }
 
+
 .post .post-info{
- font-size: 11px;
- margin: 5px;
- padding: 5px 10px;
- background-color: #E4E4E4;
- border: 0 solid black;
- border-radius: 5px;
+ font-size: 13px;
+ /*margin: 5px;*/
+ /*padding: 5px 10px;*/
+ /*background-color: #E4E4E4;
+ border: 0 solid black;*/
+ /*border-bottom: : 5px dotted black;*/
 }
-.post .post-info>div{
- padding: 5px 0;
- border-top: 1px dotted #999;
-}
-.post .post-info>div:first-child{
- border-top: none;
-}
-.post .post-info span{
- display: inline-block;
- width: 40px;
-}
-.post-index .posts{
- border-top: 1px solid #ccc;
- border-bottom: 1px solid #ccc;
-}
-.post .posts th,
+
+/*.post .posts th,
 .post .posts td
 {
  padding: 7px 5px;
+} 게시판?? */
+
+.post-index .posts{
+ border-top: 1px solid black;
+ border-bottom: 1px solid red;
+ align-items: center;
 }
+
 .post .posts th:first-child,
 .post .posts td:first-child
 {
- padding-left: 15px;
+ padding-left: 30px;
 }
-.post .posts thead{
- background-color: #F5F5F5;
-}
+
+/*.post .posts thead{
+ background-color: dotted gray;
+} 타이틀 적혀 있는 부분 */
+
 .post .posts thead tr th{
- border-bottom: 1px solid #ccc;
+ border-bottom: 1px solid orange;
 }
 .post .posts tbody tr:nth-child(odd){
- background-color: #F4FFFF;
+ background-color: white;
 }
 .post .posts tbody .noData{
- background-color: #FFFFFF;
+ background-color: blue;
  text-align: center;
 }
-.post .posts .date{
- text-align: center;
- width: 100px;
- padding-right: 15px;
-}
+
 .post-new,
 .post-edit{
  max-width: 520px;
+}
+
+
+/*nav bar*/
+#myNavbar {
+  font-family: 'Satisfy', cursive;
+  font-size: 20px;
 }

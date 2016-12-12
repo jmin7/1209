@@ -1,19 +1,39 @@
 <nav class="navbar navbar-default">
+
  <div class="container">
+
   <div class="navbar-header">
    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
     <span class="icon-bar"></span>
     <span class="icon-bar"></span>
     <span class="icon-bar"></span>
    </button>
-   <div class="navbar-brand">My Website</div>
+   <div class="navbar-brand">
+     <a href="/">My Website</a></div>
   </div>
+
   <div class="collapse navbar-collapse" id="myNavbar">
-   <ul class="nav navbar-nav">
-    <li><a href="/">Home</a></li>
-    <li><a href="/about">About</a></li>
-      <li><a href="/posts">Board</a></li>
-   </ul>
-  </div>
+     <ul class="nav navbar-nav navebar-left">
+    <li><a href='/'>Home</a></li>
+    <li><a href='/about'>About</a></li>
+     <li><a href='/posts'>Board</a></li>
+         <!-- <% if (currentUser) { %> -->
+         <!-- <% } %> -->
+     </ul>
+
+   <ul class="nav navbar-nav navbar-right">
+     <% if (currentUser) { %>
+           <li><a href="#"><%= currentUser.local.username %></a></li>
+           <!-- 나중에 local이 아닌 다른 곳 (페이스북 등)의 email을 가져올 수도 있으니까
+               현재는 없더라도 일단 local로 한정지어놓음 -->
+           <li><a href='/logout'>Logout</a></li>
+         <% } else { %>
+           <li><a href='/login'>Login</a></li>
+           <li><a href='/signup'>Signup</a></li>
+           <!-- <li><a href='/users'>Users</a></li> -->
+         <% } %>
+     </ul>
+
+ </div>
  </div>
 </nav>
