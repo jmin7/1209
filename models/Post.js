@@ -3,10 +3,10 @@ var mongoose = require('mongoose')
 // schema
 var postSchema = new mongoose.Schema({
   title: { type: String, required: true },
-  body: { type: String },
-  createdAt : { type: Date, default: Date.now},
-  updatedAt : { type: Date }
-});
+  body: { type: String }
+},
+{ timestamps: true } // createdAt, updatedAt
+);
 
 function date2String(date) {
   var options = {

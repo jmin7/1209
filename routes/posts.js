@@ -40,7 +40,12 @@ router.get('/:id', function(req, res, next){
 
 // create
 router.post('/', function(req, res, next) {
- Post.create(req.body)
+  console.log('req.body:', req.body);
+  let post = {
+    title: req.body.title,
+    body: req.body.body
+  };
+ Post.create(post)
  .then(function(post) {
    res.redirect('/posts');
 }, function(err) {
@@ -61,13 +66,20 @@ router.get('/:id/edit', function(req, res, next){
 
 // update
 router.put('/:id', function(req, res, next) {
- req.body.updatedAt = Date.now();
- Post.findOneAndUpdate(req.params.id, req.body)
- .then(function(post) {
-  res.redirect('/posts/'+req.params.id);
-}, function(err) {
-  return next(err);
- });
+  console.log('update got id:', req.params.id);
+  Post.findById(req.params.id)
+  .then(function(post) {
+    if (!post) return next(makeError(res, 'Document not found', 404));
+    post.title = req.body.title;
+    post.body  = req.body.body;
+    return post.save();
+  })
+  .then(function(saved) {
+    console.log('updated post:', saved);
+    res.redirect('/posts/'+req.params.id);
+  }, function(err) {
+    return next(err);
+  });
 });
 
 // destroy
