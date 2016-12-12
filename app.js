@@ -48,7 +48,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(methodOverride('_method'));
 app.use(express.static('public'));
-
+// secrect is used to encrypt 
 app.use(session({ secret: 'Project2',
                   resave: true,
                   saveUninitialized: true }));

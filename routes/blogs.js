@@ -43,7 +43,8 @@ router.post('/', function(req, res, next) {
   console.log('req.body:', req.body);
   let blog = {
     title: req.body.title,
-    body: req.body.body
+    body: req.body.body,
+    image: req.body.image
   };
  Blog.create(blog)
  .then(function(blog) {
@@ -67,7 +68,7 @@ router.get('/:id/edit', function(req, res, next){
 // update
 router.put('/:id', function(req, res, next) {
   console.log('update got id:', req.params.id);
-  blog.findById(req.params.id)
+  Blog.findById(req.params.id)
   .then(function(blog) {
     if (!blog) return next(makeError(res, 'Document not found', 404));
     blog.title = req.body.title;

@@ -20,7 +20,7 @@ router.post('/signup', function (req, res, next) {
   var signUpStrategy = passport.authenticate('local-signup', {
     successRedirect : '/posts',
     failureRedirect : '/signup',
-    // failureFlash : true  send failure message
+    failureFlash : true  // send failure message
   });
 
   return signUpStrategy(req, res, next);
@@ -36,7 +36,7 @@ router.post('/login', function(req, res, next) {
   var loginProperty = passport.authenticate('local-login', {
     successRedirect : '/posts',
     failureRedirect : '/login',
-    // failureFlash    : true
+    failureFlash    : true
   });
 
   return loginProperty(req, res, next);
@@ -62,7 +62,7 @@ module.exports = router;
 //   return error;
 // }
 
-// ======= MEAN start
+// ======= start
 // index - 1
 // router.route('/').get(function(req, res, next) {
 //   User.find({}).sort( { username: 1 })
@@ -158,4 +158,4 @@ module.exports = router;
 //     });
 //   });
 // });
-// =========== MEAN end
+// ===========  end
