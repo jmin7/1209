@@ -1,3 +1,8 @@
+body {
+  background-image: url("../image/worldmap.png");
+  background-size: cover;
+}
+
 .pic {
   width: 500px;
 }

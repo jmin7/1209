@@ -5,11 +5,11 @@ var blogSchema = new mongoose.Schema({
   title: { type: String, required: true },
   image: String,
   body: String,
-  comments: [
-    { type: mongoose.Schema.Types.ObjectId,
-      ref: "Comment"
-    }
-  ]
+  // comments: [
+  //   { type: mongoose.Schema.Types.ObjectId,
+  //     ref: "Comment"
+  //   }
+  // ]
 },
  { timestamps: true } // createdAt, updatedAt
 );
@@ -25,7 +25,7 @@ var blogSchema = new mongoose.Schema({
 // blogSchema.methods.getCreatedAt = function() {
 //   return date2String(this.createdAt);
 // };
-// 
+//
 // blogSchema.methods.getUpdatedAt = function() {
 //   return date2String(this.updatedAt);
 // };

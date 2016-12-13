@@ -15,7 +15,6 @@
 
 <div>
    <% blogs.forEach(function(blog) { %>
-
       <a href="/blogs/<%= blog._id %>"><div><%= blog.title %></div></a>
       <%= blog.createdAt %>
      <div class="blog-image"><img class ="pic" src = <%= blog.image %> ></div>

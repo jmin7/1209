@@ -12,7 +12,7 @@ var strategy = new LocalStrategy({
 
       // If no user is found
       if (!user) {
-        return callback(null, false, req.flash('error', 'User not found :( )'));
+        return callback(null, false, req.flash('error', 'User not found :('));
       }
       // "user or password invalid" 라고 해서 애매하게 알려주기도 함
       // Validate password

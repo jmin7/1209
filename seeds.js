@@ -1,6 +1,6 @@
 var mongoose = require('mongoose');
 var blog = require('./models/Blog');
-var Comment = require('./models/Comment');
+// var Comment = require('./models/Comment');
 
 var blogData = [
   { title: "Cloud's Rest",
