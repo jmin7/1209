@@ -1,31 +1,30 @@
 var mongoose = require('mongoose');
 var bcrypt   = require('bcrypt-nodejs');
-
-// var Post = require('./Post');
+var Post = require('./Post');
 // var User     = mongoose.model('user', userSchema);
 
 // schema
 
-// var UserSchema = new mongoose.Schema({
-//   local : {
-//     username : String,
-//     password : String
-//   }
-// });
-
 var UserSchema = new mongoose.Schema({
   local : {
-    username : { type    : String,
-                required : true },
-    email  : { type    : String,
-                required : true },
-    password : { type  : String,
-                required : true },
-    passwordConfirmation : { type : String,
-                required : true }
-      },
-  // toObject: { virtuals  : true }  // for those not to be saved in DB
+    username : String,
+    password : String
+  }
 });
+
+// var UserSchema = new mongoose.Schema({
+//   local : {
+//     username : { type    : String,
+//                 required : true },
+//     email  : { type    : String,
+//                 required : true },
+//     password : { type  : String,
+//                 required : true },
+//     passwordConfirmation : { type : String,
+//                 required : true }
+//       },
+  // toObject: { virtuals  : true }  // for those not to be saved in DB
+//});
 
 // encrypting password
 UserSchema.methods.encrypt = function(password) {

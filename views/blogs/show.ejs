@@ -29,14 +29,19 @@
       </div> <!-- blog-info end -->
      </div> <!-- col end-->
      <div class="col-sm-8 col-sm-pull-4">
+      <div><img src = <%= blog.image %>></div>
       <div class="blog-body"><%= blog.body %></div>
-     </div> <!-- col end-->
-
-     <div class="col-sm-8 col-sm-pull-4">
-      <div class="blog-image"><img src = <%= blog.image %> ></div>
-     </div> <!-- col end-->
+       </div> <!-- col end-->
     </div> <!-- row end -->
    </div> <!-- blog-container end -->
+
+ <!-- <div>
+   <% blog.comments.forEach(function(comment) { %>
+<p>
+  <%= comment.author %> - <%= comment.text %>
+</p>
+<% }); %>
+</div> -->
 
   </div> <!-- container end -->
   <footer>

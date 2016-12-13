@@ -32,7 +32,11 @@ router.get('/:id', function(req, res, next){
  Blog.findById(req.params.id)
  .then(function(blog){
   // if(!blog) return next(makeError(res, 'Document not found', 404));
-  res.render('blogs/show', { blog: blog });
+  res.render('blogs/show', { blog: blog});
+})
+ Blog.findById(req.params.id)
+.then(function(comment) {
+  res.render('blogs/show', { comment: comment });
 }, function(err) {
   return next(err);
  });

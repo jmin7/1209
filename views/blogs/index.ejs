@@ -13,12 +13,23 @@
     <a class="btn btn-default" href="/blogs/new">New</a>
    </div>
 
-   <table class="table table-striped blogs">
+<div>
+   <% blogs.forEach(function(blog) { %>
+
+      <a href="/blogs/<%= blog._id %>"><div><%= blog.title %></div></a>
+      <%= blog.createdAt %>
+     <div class="blog-image"><img class ="pic" src = <%= blog.image %> ></div>
+   <% }) %>
+
+ </div>
+
+
+   <!-- <table class="table table-striped blogs">
     <thead>
-     <tr>
+     <th>
       <th class="title">Title</th>
       <th class="date">Date</th>
-     </tr>
+    </th>
     </thead>
     <tbody>
      <% if(blogs == null || blogs.length == 0){ %>
@@ -35,14 +46,12 @@
         <%= blog.createdAt %>
        </td>
       </tr>
-
-
        <div class="blog-image"><img class ="pic" src = <%= blog.image %> ></div>
-
      <% }) %>
     </tbody>
    </table>
-  </div> <!-- container end -->
+  </div>  -->
+
   <footer>
     <% include ../partials/footer %>
   </footer>

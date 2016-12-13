@@ -3,16 +3,16 @@ var User            = require('../../models/User');
 
 var strategy = new LocalStrategy({
     usernameField : 'username',
-    emailField : 'email',
+    // emailField : 'email',
     passwordField : 'password',
-    passwordConfirmationField : 'passwordConfirmation',
+    // passwordConfirmationField : 'passwordConfirmation',
     passReqToCallback : true
   },
   function(req, username, password, callback) {
     // Find a user with this username
     User.findOne({ 'local.username' :  username }, function(err, user) {
       if (err) return callback(err);
-      if (User) {
+      if (user) {
         // A user with this username already exists
         return callback(null, false, req.flash('error', 'This username is already taken.'));
       }
@@ -20,7 +20,7 @@ var strategy = new LocalStrategy({
         // Create a new user
         var newUser            = new User();
         newUser.local.username = username;
-        newUser.local.email    = useremail;
+        newUser.local.email    = req.body.email;
         newUser.local.password = newUser.encrypt(password);
 
         newUser.save(function(err) {

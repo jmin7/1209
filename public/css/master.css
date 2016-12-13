@@ -2,6 +2,10 @@
   width: 500px;
 }
 
+.blog-info {
+  font-size: 12px;
+}
+
 /* global style */
 .buttons {
  margin: 10px 100px 10px 0;
@@ -42,7 +46,7 @@ font-size: 30px;
 .footerJM {
   font-family: 'Satisfy', cursive;
   font-size: 15px;
-  position: absolute;
+/*position: absolute;*/
   bottom : 0;
   right: 3em;
 
@@ -109,7 +113,7 @@ font-size: 30px;
  background-color: white;
 }
 .post .posts tbody .noData{
- background-color: blue;
+ background-color: white;
  text-align: center;
 }
 

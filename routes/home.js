@@ -17,14 +17,15 @@ router.get('/signup', function (req, res, next) {
 
 // POST / signup
 router.post('/signup', function (req, res, next) {
+  console.log('signup page working??');
   var signUpStrategy = passport.authenticate('local-signup', {
     successRedirect : '/posts',
-    failureRedirect : '/signup',
-    failureFlash : true  // send failure message
+    failureRedirect : '/'
+    // failureFlash : true  // send failure message
   });
 
   return signUpStrategy(req, res, next);
-})
+});
 
 // GET / login
 router.get('/login', function(req, res, next) {
@@ -35,8 +36,8 @@ router.get('/login', function(req, res, next) {
 router.post('/login', function(req, res, next) {
   var loginProperty = passport.authenticate('local-login', {
     successRedirect : '/posts',
-    failureRedirect : '/login',
-    failureFlash    : true
+    failureRedirect : '/login'
+    // failureFlash    : true
   });
 
   return loginProperty(req, res, next);
