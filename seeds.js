@@ -3,16 +3,16 @@ var blog = require('./models/Blog');
 var post = require('./models/Post');
 
 var blogData = [
-  { title: "Cloud's Rest",
-    image: "http://www.w3schools.com/css/img_fjords.jpg",
+  { title: "Cute illustration",
+    image: "../project_pics/car.jpg",
     body: " blah blah blah"
   },
-  { title: "Desert Mesa",
-    image: "http://www.w3schools.com/css/img_fjords.jpg",
+  { title: "Time for Travel",
+    image: "../project_pics/travelby.jpg",
     body: " blah blah blah"
   },
-  { title: "Cloud's Rest",
-    image: "http://www.w3schools.com/css/img_fjords.jpg",
+  { title: "Trolltunga Norway",
+    image: "../project_pics/norway.jpg",
     body: " blah blah blah"
   },
 ]

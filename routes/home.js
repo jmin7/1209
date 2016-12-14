@@ -9,6 +9,9 @@ router.get('/', function(req, res, next) {
 router.get('/about', function(req, res) {
   res.render('home/about.ejs');
 });
+router.get('/secret', function(req, res) {
+  res.render('secret.ejs');
+});
 
 // GET / signup
 router.get('/signup', function (req, res, next) {

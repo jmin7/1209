@@ -2,18 +2,20 @@ body { height: 100%; margin: 0px; padding: 0px; }
      #full { background: #0f0; height: 100% }
 
 body.home_index {
-  background-image: url("../image/worldmap.png");
+  background-image: url("../project_pics/worldmap.png");
   background-size: cover;
 }
 
 body.home_about {
-  background-image: url("../image/travel.png");
+  background-image: url("../project_pics/airplane.jpg");
   background-size: cover;
 }
 
 body.posts_index {
+  background-image: url("../project_pics/car.jpg");
+  background-size: cover;
   /*background-color: yellow;*/
-  background-color: #F50057;
+  /*background-color: #F50057;*/
   /*height: 100%;*/
 }
 
@@ -23,7 +25,7 @@ body.blogs_index {
 }
 
 .pic {
-  max-width: 700px;
+  max-width: 500px;
   margin-bottom: 60px;
 }
 
