@@ -1,8 +1,8 @@
 var mongoose = require('mongoose');
-var blog = require('./models/Blog');
+var photo = require('./models/Photo');
 var post = require('./models/Post');
 
-var blogData = [
+var photoData = [
   { title: "Cute illustration",
     image: "../project_pics/car.jpg",
     body: " blah blah blah"
@@ -28,18 +28,18 @@ var postData = [
 
 
 function seedDB(){
-  // remove all Blogs
-blog.remove({}, function(err) {
+  // remove all Photos
+photo.remove({}, function(err) {
   if(err) {}
-  console.log('removed blogs');
+  console.log('photos removed');
 
-// add a few blogs
-blogData.forEach(function(seed) {
-blog.create(seed, function(err, blogData) {
+// add photos
+photoData.forEach(function(seed) {
+photo.create(seed, function(err, photoData) {
   if(err) {
     console.log(err)
   } else {
-    console.log('added a blog');
+    console.log('added photos');
       }
     });
   });
@@ -61,11 +61,6 @@ postData.forEach(function(seed) {
 });
 
 }
-
-
-
-
-
 
 
 module.exports = seedDB;

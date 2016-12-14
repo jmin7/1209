@@ -15,7 +15,7 @@ var app              = express();
 // Routes
 var homeRouter  = require('./routes/home');
 var postsRouter = require('./routes/posts');
-var blogsRouter = require('./routes/blogs');
+var photosRouter = require('./routes/photos');
 var seedDB      = require('./seeds');
 
 
@@ -83,7 +83,7 @@ app.use(function (req, res, next) {
 app.use('/', homeRouter);
 // app.use('/secrect', secretRouter);
 app.use('/posts', postsRouter);
-app.use('/blogs', blogsRouter);
+app.use('/blogs', photosRouter);
 
 
 

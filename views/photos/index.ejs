@@ -10,17 +10,18 @@
    <% include ./partials/pheader ﻿%>
 
    <div class="buttons">
-    <a class="btn btn-default" href="/blogs/new">New</a>
+    <a class="btn btn-default" href="/blogs/new">Add a picture</a>
    </div>
 
- <div>
-
+ 
+<div class="photo_index_pic">
    <% blogs.forEach(function(blog) { %>
       <a href="/blogs/<%= blog._id %>"><div><%= blog.title %></div></a>
       <%= blog.createdAt %>
      <div class="blog-image"><img class ="thumbnail pic" src = <%= blog.image %> ></div>
       <% }) %>
- </div>
+  </div>
+ <
 
 
 

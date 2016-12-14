@@ -1,7 +1,7 @@
 var express = require("express");
 var router = express.Router();
 var mongoose = require('mongoose');
-var Blog  = require("../models/Blog");
+var Photo  = require("../models/Photo");
 
 // var User = require("../models/User");
 
@@ -16,10 +16,10 @@ function makeError(res, message, status) {
 
 // Index
 router.get('/', function(req, res, next){
-  // get all the blogs and render the incex view
- Blog.find({}).sort({ updatedAt: -1})
+  // get all the Photos and render the incex view
+ Photo.find({}).sort({ updatedAt: -1})
  .then(function(blogs) {
-  res.render('blogs/index', { blogs: blogs });
+  res.render('photos/index', { blogs: blogs });
 }, function(err) {
   return next(err);
  });
@@ -27,15 +27,15 @@ router.get('/', function(req, res, next){
 
 // New
 router.get('/new', function(req, res, next){
- res.render('blogs/new');
+ res.render('photos/new');
 });
 
 // show
 router.get('/:id', function(req, res, next){
- Blog.findById(req.params.id)
+ Photo.findById(req.params.id)
  .then(function(blog){
   // if(!blog) return next(makeError(res, 'Document not found', 404));
-  res.render('blogs/show', { blog: blog});
+  res.render('photos/show', { blog: blog});
 });
 
 });
@@ -48,7 +48,7 @@ router.post('/', function(req, res, next) {
     body: req.body.body,
     image: req.body.image
   };
- Blog.create(blog)
+ Photo.create(blog)
  .then(function(blog) {
    res.redirect('/blogs'); //
 }, function(err) {
@@ -58,10 +58,10 @@ router.post('/', function(req, res, next) {
 
 // edit
 router.get('/:id/edit', function(req, res, next){
- Blog.findById(req.params.id)
+ Photo.findById(req.params.id)
  .then(function(blog) {
    if(!blog) return next(makeError(res, 'Document not found', 404));
-   res.render('blogs/edit', { blog: blog });
+   res.render('photos/edit', { blog: blog });
  }, function(err) {
    return next(err);
   });
@@ -70,7 +70,7 @@ router.get('/:id/edit', function(req, res, next){
 // update
 router.put('/:id', function(req, res, next) {
   console.log('update got id:', req.params.id);
-  Blog.findById(req.params.id)
+  Photo.findById(req.params.id)
   .then(function(blog) {
     if (!blog) return next(makeError(res, 'Document not found', 404));
     blog.title = req.body.title;
@@ -87,7 +87,7 @@ router.put('/:id', function(req, res, next) {
 
 // destroy
 router.delete('/:id', function(req, res, next) {
- Blog.findByIdAndRemove(req.params.id)
+ Photo.findByIdAndRemove(req.params.id)
  .then(function(){
   res.redirect('/blogs');
 }, function(err) {
@@ -96,22 +96,22 @@ router.delete('/:id', function(req, res, next) {
 });
 
 // comments/create
-router.post('/:id/comments', function(req,res){
-  var newComment = req.body.comment;
-  newComment.author = req.user._id;
-  Post.update({_id:req.params.id},{$push:{comments:newComment}},function(err,post){
-    if(err) return res.json({success:false, message:err});
-    res.redirect('/posts/'+req.params.id+"?"+req._parsedUrl.query);
-  });
-});
+// router.post('/:id/comments', function(req,res){
+//   var newComment = req.body.comment;
+//   newComment.author = req.user._id;
+//   Post.update({_id:req.params.id},{$push:{comments:newComment}},function(err,post){
+//     if(err) return res.json({success:false, message:err});
+//     res.redirect('/posts/'+req.params.id+"?"+req._parsedUrl.query);
+//   });
+// });
 
 // comments/destroy
-router.delete('/:postId/comments/:commentId', function(req,res){
-  Post.update({_id:req.params.postId},{$pull:{comments:{_id:req.params.commentId}}},
-    function(err,post){
-      if(err) return res.json({success:false, message:err});
-      res.redirect('/posts/'+req.params.postId+"?"+req._parsedUrl.query.replace(/_method=(.*?)(&|$)/ig,""));
-  });
-});
+// router.delete('/:postId/comments/:commentId', function(req,res){
+//   Post.update({_id:req.params.postId},{$pull:{comments:{_id:req.params.commentId}}},
+//     function(err,post){
+//       if(err) return res.json({success:false, message:err});
+//       res.redirect('/posts/'+req.params.postId+"?"+req._parsedUrl.query.replace(/_method=(.*?)(&|$)/ig,""));
+//   });
+// });
 
 module.exports = router;

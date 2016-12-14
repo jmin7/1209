@@ -1,6 +1,7 @@
 body { height: 100%; margin: 0px; padding: 0px; }
      #full { background: #0f0; height: 100% }
 
+/*background images*/
 body.home_index {
   background-image: url("../project_pics/worldmap.png");
   background-size: cover;
@@ -16,21 +17,43 @@ body.posts_index {
   background-size: cover;
   /*background-color: yellow;*/
   /*background-color: #F50057;*/
-  /*height: 100%;*/
 }
 
 body.blogs_index {
   background-color: skyblue;
-  /*height: 100%;*/
 }
 
+body.secret_index {
+  background-image: url("../project_pics/green.jpg");
+  background-size: cover;
+}
+
+
+/*blog index page*/
 .pic {
   max-width: 500px;
   margin-bottom: 60px;
 }
 
-.blog-info {
-  font-size: 12px;
+.photo_index_pic {
+  display: inline-grid;
+}
+
+.photo_show_pic {
+  max-width: 700px;
+}
+
+.photo_body {
+  margin-bottom: 100px;
+}
+
+/*.comment_box {
+  max-width: 500px;
+}*/
+
+.photo_info {
+  font-size: 14px;
+  margin: 15px 0 10px 0;
 }
 
 /* global style */
@@ -87,7 +110,7 @@ font-size: 30px;
  }
 
 .post h1 {
- color: gray;
+ /*color: gray;*/
  /*text-align: center;*/
 }
 .post .post-body{
