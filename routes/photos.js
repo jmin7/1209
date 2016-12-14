@@ -74,6 +74,7 @@ router.put('/:id', function(req, res, next) {
   .then(function(blog) {
     if (!blog) return next(makeError(res, 'Document not found', 404));
     blog.title = req.body.title;
+    blog.image = req.body.image;
     blog.body  = req.body.body;
     return blog.save();
   })
