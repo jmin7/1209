@@ -12,6 +12,7 @@ body.home_about {
 }
 
 body.posts_index {
+  /*background-color: yellow;*/
   background-color: #F50057;
   /*height: 100%;*/
 }

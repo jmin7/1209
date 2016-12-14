@@ -11,6 +11,7 @@ var session          = require('express-session');
 
 var app              = express();
 
+
 // Routes
 var homeRouter  = require('./routes/home');
 var usersRouter = require('./routes/users');
@@ -20,24 +21,12 @@ var seedDB      = require('./seeds');
 
 
 // Connect to database -- heroku
-if (process.env.MONGODB_URI) {
-  mongoose.connect(process.env.MONGODB_URI);
-}
-else {
-  mongoose.connect('mongodb://localhost/posts');
-}
-mongoose.connection.on('error', function(err) {
-  console.error('MongoDB connection error: ' + err);
-  process.exit(-1);
-  }
-);
-mongoose.connection.once('open', function() {
-  console.log("Mongoose has connected to MongoDB!");
-});
-// seedDB()
-
-// Connect to database
-// mongoose.connect('mongodb://localhost/posts');
+// if (process.env.MONGODB_URI) {
+//   mongoose.connect(process.env.MONGODB_URI);
+// }
+// else {
+//   mongoose.connect('mongodb://localhost/posts');
+// }
 // mongoose.connection.on('error', function(err) {
 //   console.error('MongoDB connection error: ' + err);
 //   process.exit(-1);
@@ -46,6 +35,18 @@ mongoose.connection.once('open', function() {
 // mongoose.connection.once('open', function() {
 //   console.log("Mongoose has connected to MongoDB!");
 // });
+// seedDB()
+
+// Connect to database
+mongoose.connect('mongodb://localhost/posts');
+mongoose.connection.on('error', function(err) {
+  console.error('MongoDB connection error: ' + err);
+  process.exit(-1);
+  }
+);
+mongoose.connection.once('open', function() {
+  console.log("Mongoose has connected to MongoDB!");
+});
 // seedDB()
 
 // view engin settings
@@ -123,7 +124,7 @@ console.log('Running in %s mode', app.get('env'));
 // Port setting, tell express listen for requests (start server)
 // (process.env.PORT, process.env.IP); environment variable
 // listen to particular PORT and IP
-app.listen(3000, function() {
+app.listen(process.env.PORT || 3000, function() {
   console.log('server on!!!');
 });
 
