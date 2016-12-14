@@ -14,7 +14,7 @@ function makeError(res, message, status) {
 // Index
 router.get('/', function(req, res, next){
   // get all the posts and render the incex view
- Post.find({}).sort()
+ Post.find({}).sort({ updatedAt: -1})
  .then(function(posts) {
   res.render('posts/index', { posts: posts });
 }, function(err) {

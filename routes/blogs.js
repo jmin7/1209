@@ -17,7 +17,7 @@ function makeError(res, message, status) {
 // Index
 router.get('/', function(req, res, next){
   // get all the blogs and render the incex view
- Blog.find({})
+ Blog.find({}).sort({ updatedAt: -1})
  .then(function(blogs) {
   res.render('blogs/index', { blogs: blogs });
 }, function(err) {
@@ -50,7 +50,7 @@ router.post('/', function(req, res, next) {
   };
  Blog.create(blog)
  .then(function(blog) {
-   res.redirect('/blogs', {page:req.query.page}); //
+   res.redirect('/blogs'); //
 }, function(err) {
   return next(err)
  });
