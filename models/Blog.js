@@ -5,12 +5,7 @@ var blogSchema = new mongoose.Schema({
   title: { type: String, required: true },
   image: String,
   body: String,
-  // comments: [
-  //   { type: mongoose.Schema.Types.ObjectId,
-  //     ref: "Comment"
-  //   }
-  // ]
-},
+  },
  { timestamps: true } // createdAt, updatedAt
 );
 

@@ -1,10 +1,29 @@
-body {
+body { height: 100%; margin: 0px; padding: 0px; }
+     #full { background: #0f0; height: 100% }
+
+body.home_index {
   background-image: url("../image/worldmap.png");
   background-size: cover;
 }
 
+body.home_about {
+  background-image: url("../image/travel.png");
+  background-size: cover;
+}
+
+body.posts_index {
+  background-color: #F50057;
+  /*height: 100%;*/
+}
+
+body.blogs_index {
+  background-color: skyblue;
+  /*height: 100%;*/
+}
+
 .pic {
-  width: 500px;
+  max-width: 700px;
+  margin-bottom: 60px;
 }
 
 .blog-info {
@@ -115,7 +134,7 @@ font-size: 30px;
  border-bottom: 1px solid orange;
 }
 .post .posts tbody tr:nth-child(odd){
- background-color: white;
+ background-color: white, 0.5;
 }
 .post .posts tbody .noData{
  background-color: white;

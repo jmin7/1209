@@ -3,7 +3,7 @@
  <head>
   <% include ../partials/header %>
  </head>
- <body>
+ <body class="blogs_index">
   <% include ../partials/nav %>
 
   <div class="container blog blog-index">
@@ -13,14 +13,15 @@
     <a class="btn btn-default" href="/blogs/new">New</a>
    </div>
 
-<div>
+ <div>
+
    <% blogs.forEach(function(blog) { %>
       <a href="/blogs/<%= blog._id %>"><div><%= blog.title %></div></a>
       <%= blog.createdAt %>
-     <div class="blog-image"><img class ="pic" src = <%= blog.image %> ></div>
-   <% }) %>
-
+     <div class="blog-image"><img class ="thumbnail pic" src = <%= blog.image %> ></div>
+      <% }) %>
  </div>
+
 
 
    <!-- <table class="table table-striped blogs">

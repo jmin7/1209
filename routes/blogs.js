@@ -1,6 +1,9 @@
 var express = require("express");
 var router = express.Router();
+var mongoose = require('mongoose');
 var Blog  = require("../models/Blog");
+
+// var User = require("../models/User");
 
 
 function makeError(res, message, status) {
@@ -33,13 +36,8 @@ router.get('/:id', function(req, res, next){
  .then(function(blog){
   // if(!blog) return next(makeError(res, 'Document not found', 404));
   res.render('blogs/show', { blog: blog});
-})
- Blog.findById(req.params.id)
-.then(function(comment) {
-  res.render('blogs/show', { comment: comment });
-}, function(err) {
-  return next(err);
- });
+});
+
 });
 
 // create
@@ -52,7 +50,7 @@ router.post('/', function(req, res, next) {
   };
  Blog.create(blog)
  .then(function(blog) {
-   res.redirect('/blogs');
+   res.redirect('/blogs', {page:req.query.page}); //
 }, function(err) {
   return next(err)
  });
@@ -95,6 +93,25 @@ router.delete('/:id', function(req, res, next) {
 }, function(err) {
   return next(err);
  });
+});
+
+// comments/create
+router.post('/:id/comments', function(req,res){
+  var newComment = req.body.comment;
+  newComment.author = req.user._id;
+  Post.update({_id:req.params.id},{$push:{comments:newComment}},function(err,post){
+    if(err) return res.json({success:false, message:err});
+    res.redirect('/posts/'+req.params.id+"?"+req._parsedUrl.query);
+  });
+});
+
+// comments/destroy
+router.delete('/:postId/comments/:commentId', function(req,res){
+  Post.update({_id:req.params.postId},{$pull:{comments:{_id:req.params.commentId}}},
+    function(err,post){
+      if(err) return res.json({success:false, message:err});
+      res.redirect('/posts/'+req.params.postId+"?"+req._parsedUrl.query.replace(/_method=(.*?)(&|$)/ig,""));
+  });
 });
 
 module.exports = router;
