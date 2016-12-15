@@ -13,15 +13,16 @@
     <a class="btn btn-default" href="/blogs/new">Add a picture</a>
    </div>
 
- 
+
 <div class="photo_index_pic">
    <% blogs.forEach(function(blog) { %>
-      <a href="/blogs/<%= blog._id %>"><div><%= blog.title %></div></a>
-      <%= blog.createdAt %>
+      <a href="/blogs/<%= blog._id %>"><div class="photo_index_title"><%= blog.title %></div></a>
+      <div class="photo_index_time">
+      <%= blog.createdAt %><div>
      <div class="blog-image"><img class ="thumbnail pic" src = <%= blog.image %> ></div>
       <% }) %>
   </div>
- <
+
 
 
 

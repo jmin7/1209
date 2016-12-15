@@ -33,11 +33,22 @@ body.secret_index {
 .pic {
   max-width: 500px;
   margin-bottom: 60px;
+  display: center;
 }
 
 .photo_index_pic {
-  display: inline-grid;
+  /*display: inline-grid;*/
+  /*text-align: center;*/
 }
+
+.photo_index_title {
+  font-size: 40px;
+}
+
+.photo_index_time {
+  font-size: 17px;
+}
+
 
 .photo_show_pic {
   max-width: 700px;
@@ -47,13 +58,13 @@ body.secret_index {
   margin-bottom: 100px;
 }
 
-/*.comment_box {
-  max-width: 500px;
-}*/
-
 .photo_info {
   font-size: 14px;
   margin: 15px 0 10px 0;
+}
+
+.secret_message {
+ text-align: center;
 }
 
 /* global style */
@@ -93,14 +104,14 @@ font-size: 30px;
   font-size: 20px;
 }
 
-.footerJM {
+/*.footerJM {
   font-family: 'Satisfy', cursive;
   font-size: 15px;
-/*position: absolute;*/
+  position: absolute;
   bottom : 0;
   right: 3em;
 
-}
+}*/
 
 /* post style */
 .post {
@@ -149,7 +160,7 @@ font-size: 30px;
 .post .posts th:first-child,
 .post .posts td:first-child
 {
- padding-left: 30px;
+ padding-left: 40px;
 }
 
 /*.post .posts thead{
@@ -165,6 +176,7 @@ font-size: 30px;
 }
 .post .posts tbody .noData{
  background-color: white;
+ opacity: 0.5;
  text-align: center;
 }
 

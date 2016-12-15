@@ -5,15 +5,15 @@ var post = require('./models/Post');
 var photoData = [
   { title: "Cute illustration",
     image: "../project_pics/car.jpg",
-    body: " blah blah blah"
+    body: " This car looks good "
   },
   { title: "Time for Travel",
     image: "../project_pics/travelby.jpg",
-    body: " blah blah blah"
+    body: " It is time to travel! "
   },
   { title: "Trolltunga Norway",
     image: "../project_pics/norway.jpg",
-    body: " blah blah blah"
+    body: " Norway looks nice "
   },
 ]
 
