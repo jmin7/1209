@@ -11,3 +11,7 @@ TTraveloGG is a website for people who loves to travel around the world. Anyone 
 
 ## Trello Board
 https://trello.com/b/O377Qb1P/project-2
+
+## Wireframe
+
+<img src=https://github.com/jmin7/1209/blob/master/wireframe/index.png?raw=true>
