@@ -14,4 +14,13 @@ https://trello.com/b/O377Qb1P/project-2
 
 ## Wireframe
 
+- Nav Bar <br>
+<img src=https://github.com/jmin7/1209/blob/master/wireframe/navbar.png?raw=true>
+
+- Index page <br>
 <img src=https://github.com/jmin7/1209/blob/master/wireframe/index.png?raw=true>
+
+- New / Show post <br>
+<img src=https://github.com/jmin7/1209/blob/master/wireframe/newshow.png?raw=true>
+
+## Future works
