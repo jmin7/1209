@@ -17,6 +17,7 @@ var homeRouter  = require('./routes/home');
 var postsRouter = require('./routes/posts');
 var photosRouter = require('./routes/photos');
 var seedDB      = require('./seeds');
+var todosRouter = require('./routes/todos');
 
 
 // Connect to database -- heroku
@@ -84,6 +85,7 @@ app.use('/', homeRouter);
 // app.use('/secrect', secretRouter);
 app.use('/posts', postsRouter);
 app.use('/blogs', photosRouter);
+app.use('/todos', todosRouter);
 
 
 
