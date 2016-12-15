@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 
-var Todo = require('../models/todo');
+var Todo = require('../models/Todo');
 
 function makeError(res, message, status) {
   res.statusCode = status;
