@@ -3,54 +3,43 @@
  <head>
   <% include ../partials/header %>
  </head>
- <body class="blogs_index">
-  <% include ../partials/nav %>
 
-  <div class="container blog blog-show">
-   <% include ./partials/pheader %>
+ <body class="photos_index">
+    <% include ../partials/nav %>
+
+  <div class="container photo">
+     <% include ./partials/pheader %>
 
    <div class="buttons">
-    <a class="btn btn-default" href="/blogs">List</a>
+    <a class="btn btn-default" href="/blogs">Back to the List</a>
     <a class="btn btn-default" href="/blogs/<%= blog._id %>/edit">Edit</a>
     <form action="/blogs/<%= blog._id %>?_method=delete" method="post">
-     <a class="btn btn-default" href="#" onclick="confirm('Do you want to delete this?')?this.parentElement.submit():null;">Delete</a>
+     <a class="btn btn-default" href="#"
+     onclick="confirm('Do you want to delete this?')?this.parentElement.submit():null;">Delete</a>
     </form>
    </div>
 
-   <div class="contentBox">
-    <h3 class="contentBoxTop"><%= blog.title %></h3>
+   <div>
+    <div class="photo_title"><%= blog.title %></div>
 
-    <div class="row">
-
-     <div class="col-sm-4 col-sm-push-8">
-
-     </div> <!-- col end-->
-
-     <div class="col-sm-8 col-sm-pull-4">
-      <div><img class="photo_show_pic" src=<%= blog.image %>></div>
-      <div class="photo_info">
-       <div><span>Created</span> : <%= blog.createdAt %></div>
+    <div><img class="photo_show_pic" src=<%= blog.image %>></div>
+    <div class="photo_info">
+    <div><span>Created</span> : <%= blog.createdAt %></div>
        <% if(blog.updatedAt) { %>
-        <div><span>Updated</span> : <%= blog.updatedAt %></div>
+    <div><span>Updated</span> : <%= blog.updatedAt %></div>
        <% } %>
-      </div> <!-- blog-info end -->
-      <div class="photo_body"><%= blog.body %></div>
+    </div> <!-- photo_info end -->
 
-       </div> <!-- col end-->
+    <div class="photo_body"><%= blog.body %></div>
+  </div>
 
-       <!-- begin wwww.htmlcommentbox.com -->
-       <div id="HCB_comment_box"><a href="http://www.htmlcommentbox.com">Widget</a> is loading comments...</div>
-      <link rel="stylesheet" type="text/css" href="//www.htmlcommentbox.com/static/skins/bootstrap/twitter-bootstrap.css?v=0" />
-      <script type="text/javascript" id="hcb"> /*<!--*/ if(!window.hcb_user){hcb_user={};} (function(){var s=document.createElement("script"), l=hcb_user.PAGE || (""+window.location).replace(/'/g,"%27"), h="//www.htmlcommentbox.com";s.setAttribute("type","text/javascript");s.setAttribute("src", h+"/jread?page="+encodeURIComponent(l).replace("+","%2B")+"&opts=16862&num=10&ts=1481648354948");if (typeof s!="undefined") document.getElementsByTagName("head")[0].appendChild(s);})(); /*-->*/ </script>
-       <!--end www.htmlcommentbox.com -->
+    <!-- commentbox -->
+    <div id="HCB_comment_box"><a href="http://www.htmlcommentbox.com">Widget</a> is loading comments...</div>
+    <link rel="stylesheet" type="text/css" href="//www.htmlcommentbox.com/static/skins/bootstrap/twitter-bootstrap.css?v=0" />
+    <script type="text/javascript" id="hcb"> /*<!--*/ if(!window.hcb_user){hcb_user={};} (function(){var s=document.createElement("script"), l=hcb_user.PAGE || (""+window.location).replace(/'/g,"%27"), h="//www.htmlcommentbox.com";s.setAttribute("type","text/javascript");s.setAttribute("src", h+"/jread?page="+encodeURIComponent(l).replace("+","%2B")+"&opts=16862&num=10&ts=1481648354948");if (typeof s!="undefined") document.getElementsByTagName("head")[0].appendChild(s);})(); /*-->*/ </script>
+    <br><br><br>
+    <!--end commentbox -->
+  </div> <!-- contentBox end -->
 
-
-   </div> <!-- blog-container end -->
-</div>
-
-
-  <footer>
-    <% include ../partials/footer %>
-  </footer>
  </body>
 </html>

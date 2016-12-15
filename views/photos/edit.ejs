@@ -1,56 +1,58 @@
 <!DOCTYPE html>
 <html>
- <head>
-  <% include ../partials/header %>
- </head>
- <body class="blogs_index">
-  <% include ../partials/nav %>
+  <head>
+      <% include ../partials/header %>
+  </head>
 
-  <div class="container blog blog-edit">
-   <% include ./partials/pheader %>
+  <body class="photos_index">
+      <% include ../partials/nav %>
 
-   <div class="buttons">
-    <a class="btn btn-default" href="/blogs">Back</a>
-   </div>
+    <div class="container photo">
+      <% include ./partials/pheader %>
 
-   <form class="blog-form form-horizontal" action="/blogs/<%= blog._id %>?_method=put" method="post">
+    <div class="buttons">
+     <a class="btn btn-default" href="/blogs">Back to the List</a>
+    </div>
+
+    <form class="photo-form form-horizontal"
+    action="/blogs/<%= blog._id %>?_method=put" method="post">
+
     <div class="contentBox">
-     <h3 class="contentBoxTop">Edit Photo</h3>
-     <fieldset>
+      <h2 class="contentBoxTop">Edit Photo</23>
 
-       <div class="form-group">
-        <label for="title" class="col-sm-2 control-label">Title</label>
-        <div class="col-sm-10">
-         <input class="form-control" type="text" name="title" placeholder="<%= blog.title %>" value="<%= blog.title %>">
-        </div>
-       </div>
-
-       <div class="form-group">
-        <label for="title" class="col-sm-2 control-label">Image</label>
-        <div class="col-sm-10">
-         <input class="form-control" type="text" name="image" placeholder="<%= blog.image %>" value="<%= blog.image %>">
-        </div>
-       </div>
+      <fieldset class="photo_edit_body">
 
       <div class="form-group">
-       <label for="body" class="col-sm-2 control-label">Body</label>
-       <div class="col-sm-10">
-        <textarea class="form-control" id="body" name="body" rows="5" value="<%= blog.body %>">
-          <%= blog.body %></textarea>
-       </div>
+        <label for="title" class="col-sm-2 control-label">Title</label>
+        <div class="col-sm-10">
+        <input class="form-control" type="text" name="title" value="<%= blog.title %>">
+        </div>
       </div>
 
-       </fieldset>
-    </div>
+      <div class="form-group">
+        <label for="title" class="col-sm-2 control-label">Image</label>
+        <div class="col-sm-10">
+         <input class="form-control" type="text" name="image" value="<%= blog.image %>">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="body" class="col-sm-2 control-label">Body</label>
+        <div class="col-sm-10">
+        <textarea class="form-control" name="body" rows="5"><%= blog.body %>
+        </textarea>
+        </div>
+      </div>
+
+    </fieldset>
+    </div> <!-- content box -->
+
     <div class="buttons">
-     <button type="submit" class="btn btn-default">Submit</button>
+    <button type="submit" class="btn btn-default photo_submit">Submit</button>
     </div>
-   </form>
+    </form>
 
-  </div> <!-- container end -->
+    </div> <!-- container photo -->
 
-  <footer>
-    <% include ../partials/footer %>
-  </footer>
- </body>
-</html>
+  </body>
+  </html>

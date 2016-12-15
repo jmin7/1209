@@ -1,55 +1,62 @@
 <nav class="navbar navbar-default">
+  <div class="container">
 
- <div class="container">
+    <div class="navbar-header">
+      <div class="navbar-brand" id="myNavbar">
+        <a href="/"> TTRAVELOGG </a>
+      </div>
+      <button type="button" class="navbar-toggle"
+      data-toggle="collapse" data-target="#myNavbar">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      </button>
+    </div>
 
-  <div class="navbar-header">
-   <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-    <span class="icon-bar"></span>
-    <span class="icon-bar"></span>
-    <span class="icon-bar"></span>
-   </button>
-   <div class="navbar-brand">
-     <a href="/"> >>  TTRAVELOGG   << </a></div>
-  </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
 
-  <div class="collapse navbar-collapse" id="myNavbar">
-     <ul class="nav navbar-nav navbar-left">
-    <li><a href='/'>Home</a></li>
-    <li><a href='/about'>About</a></li>
-     <li><a href='/posts'>Travel Tips</a></li>
-     <li><a href='/blogs'>Photo</a></li>
-         <% if (currentUser) { %>
-         <li><a href='/secret'>Only for you</a></li>
-         <% } %>
-     </ul>
+      <ul class="nav navbar-nav navbar-left">
+        <li><a href='/'>Home</a></li>
+        <li><a href='/about'>About</a></li>
+        <li><a href='/posts'>Travel Tips</a></li>
+        <li><a href='/blogs'>Photos</a></li>
+          <% if (currentUser) { %>
+        <li><a href='/secret'>Only for you</a></li>
+          <% } %>
+      </ul>
 
-   <ul class="nav navbar-nav navbar-right">
-     <% if (currentUser) { %>
-           <li><a href="#"><%= currentUser.local.username %></a></li>
-           <!-- 나중에 local이 아닌 다른 곳 (페이스북 등)의 email을 가져올 수도 있으니까
+      <ul class="nav navbar-nav navbar-right">
+          <% if (currentUser) { %>
+        <li><a href="/secret"><%= currentUser.local.username %></a></li>
+              <!-- 나중에 local이 아닌 다른 곳 (페이스북 등)의 email을 가져올 수도 있으니까
                현재는 없더라도 일단 local로 한정지어놓음 -->
-           <li><a href='/logout'>Logout</a></li>
+        <li><a href='/logout'>Logout</a></li>
          <% } else { %>
-           <li><a href='/login'>Login</a></li>
-           <li><a href='/signup'>Signup</a></li>
-           <!-- <li><a href='/users'>Users</a></li> -->
-         <% } %>
-     </ul>
- </div>
+        <li><a href='/login'>Login</a></li>
+        <li><a href='/signup'>Signup</a></li>
+          <% } %>
+      </ul>
+    </div>
 
- </div>
+  </div>  <!-- container end -->
 </nav>
 
-<div class="flash">
-  <% if (typeof message !== 'undefined') { %>
-    <% if (typeof message.error !== 'undefined' && message.error.length > 0) { %>
-      <div class="bg-danger"><%= message.error %></div>
-    <% } %>
-    <% if (typeof message.info !== 'undefined' && message.info.length > 0) { %>
-      <div class="bg-info"><%= message.info %></div>
-    <% } %>
-    <% if (typeof message.success !== 'undefined' && message.success.length > 0) { %>
-      <div class="bg-success"><%= message.success %></div>
-    <% } %>
-  <% } %>
-</div>
+  <div class="flash">
+      <% if (typeof message !== 'undefined') { %>
+      <% if (typeof message.error !== 'undefined' && message.error.length > 0) { %>
+    <div class="bg-danger">
+      <%= message.error %>
+    </div>
+      <% } %>
+      <% if (typeof message.info !== 'undefined' && message.info.length > 0) { %>
+    <div class="bg-info">
+      <%= message.info %>
+    </div>
+      <% } %>
+      <% if (typeof message.success !== 'undefined' && message.success.length > 0) { %>
+    <div class="bg-success">
+      <%= message.success %>
+    </div>
+      <% } %>
+      <% } %>
+  </div>

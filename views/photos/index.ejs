@@ -1,61 +1,28 @@
 <!DOCTYPE html>
 <html>
- <head>
-  <% include ../partials/header %>
- </head>
- <body class="blogs_index">
-  <% include ../partials/nav %>
+  <head>
+      <% include ../partials/header %>
+   </head>
 
-  <div class="container blog blog-index">
-   <% include ./partials/pheader ﻿%>
+  <body class="photos_index">
+      <% include ../partials/nav %>
+
+  <div class="container photo">
+      <% include ./partials/pheader ﻿%>
 
    <div class="buttons">
-    <a class="btn btn-default" href="/blogs/new">Add a picture</a>
+    <a class="btn btn-primary btn-lg" href="/blogs/new">Add a photo</a>
    </div>
 
-
-<div class="photo_index_pic">
-   <% blogs.forEach(function(blog) { %>
-      <a href="/blogs/<%= blog._id %>"><div class="photo_index_title"><%= blog.title %></div></a>
-      <div class="photo_index_time">
-      <%= blog.createdAt %><div>
-     <div class="blog-image"><img class ="thumbnail pic" src = <%= blog.image %> ></div>
-      <% }) %>
+  <div class="photo_index_pic">
+       <% blogs.forEach(function(blog) { %>
+    <a href="/blogs/<%= blog._id %>"><div class="photo_index_title"><%= blog.title %></div></a>
+    <div class="photo_index_time">
+       <%= blog.createdAt %></div>
+    <div class="blog-image"><img class ="thumbnail pic" src = <%= blog.image %> ></div>
+       <% }) %>
   </div>
+ </div>
 
-
-
-
-   <!-- <table class="table table-striped blogs">
-    <thead>
-     <th>
-      <th class="title">Title</th>
-      <th class="date">Date</th>
-    </th>
-    </thead>
-    <tbody>
-     <% if(blogs == null || blogs.length == 0){ %>
-      <tr>
-       <td class="noData" colspan=100> There is no data to show :( </td>
-      </tr>
-     <% } %>
-     <% blogs.forEach(function(blog) { %>
-      <tr>
-       <td class="title">
-        <a href="/blogs/<%= blog._id %>"><div><%= blog.title %></div></a>
-       </td>
-       <td class="date">
-        <%= blog.createdAt %>
-       </td>
-      </tr>
-       <div class="blog-image"><img class ="pic" src = <%= blog.image %> ></div>
-     <% }) %>
-    </tbody>
-   </table>
-  </div>  -->
-
-  <footer>
-    <% include ../partials/footer %>
-  </footer>
- </body>
+</body>
 </html>

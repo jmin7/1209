@@ -1,46 +1,49 @@
 <!DOCTYPE html>
 <html>
- <head>
-  <% include ../partials/header %>
- </head>
- <body class="posts_index">
-  <% include ../partials/nav %>
+  <head>
+    <% include ../partials/header %>
+  </head>
+  <body class="posts_index">
+    <% include ../partials/nav %>
 
-  <div class="container post post-index">
-   <% include ./partials/pheader ﻿%>
+    <div class="container post post-index">
+     <% include ./partials/pheader ﻿%>
 
-   <div class="buttons">
-    <a class="btn btn-default" href="/posts/new">New</a>
-   </div>
+     <div class="buttons">
+      <a class="btn btn-default" href="/posts/new">New Post</a>
+     </div>
 
    <table class="table table-striped posts">
     <thead>
-     <tr>
-      <th class="title">Title</th>
-      <th class="date">Date</th>
-     </tr>
+       <tr>
+        <th class="post_table_title">Title</th>
+        <th class="post_table_date">Date</th>
+       </tr>
     </thead>
-    <tbody>
+
+    <tbody class="post_table_body">
      <% if(posts == null || posts.length == 0){ %>
-      <tr>
-       <td class="noData" colspan=100> There is no data to show :( </td>
-      </tr>
-     <% } %>
-     <% posts.forEach(function(post) { %>
-      <tr>
-       <td class="title">
-        <a href="/posts/<%= post._id %>"><div><%= post.title %></div></a>
-       </td>
-       <td class="date">
-        <%= post.updatedAt %>
-       </td>
-      </tr>
-     <% }) %>
-    </tbody>
-   </table>
-  </div> <!-- container end -->
-  <footer>
-    <% include ../partials/footer %>
-  </footer>
- </body>
+        <tr>
+           <td class="noData" colspan=100> There is no data to show :( </td>
+        </tr>
+           <% } %>
+           <% posts.forEach(function(post) { %>
+
+        <tr>
+           <td>
+            <a href="/posts/<%= post._id %>" class="post_title">
+            <div class="post_title"><%= post.title %></div></a>
+           </td>
+           <td class="post_date">
+            <%= post.updatedAt %>
+           </td>
+        </tr>
+       <% }) %>
+      </tbody>
+
+    </table>
+
+    </div> <!-- container end -->
+
+  </body>
 </html>

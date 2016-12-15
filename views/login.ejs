@@ -4,37 +4,32 @@
     <% include ./partials/header %>
   </head>
 
-  <body class="container-fluid">
-    <header>
+  <body class="container-fluid login">
   <% include ./partials/nav %>
-    </header>
 
-  <main>
-    <h2>Login</h2>
+  <main class="login_all">
+    <h1>Log in</h1>
     <form method="post" action="/login">
     <div class="contentBox">
-    <h3 class="contentBoxTop">User login</h3>
+    <h2 class="contentBoxTop">User login</h2>
     <div class="buttons">
       <button type="submit" class="btn btn-default">Login</button>
     </div>
-    <div class="form-group">
-      <label for="username">username</label>
-      <input class="form-control" type="text" name="username" id="username">
+
+    <div class="form-group login_schema">
+      <label for="username"><h3>Username</h3></label>
+      <input class="form-control" type="text" name="username" placeholder="Your username">
     </div>
 
-   <div class="form-group">
-     <label for="password">password</label>
-     <input class="form-control" type="password" name="password" id="password">
+   <div class="form-group login_schema">
+     <label for="password"><h3>Password</h3></label>
+     <input class="form-control" type="password" name="password" placeholder="Your password">
    </div>
 
 
    </div>
    </form>
  </main>
-
-<footer>
- <% include ./partials/footer %>
-</footer>
 
 </body>
 </html>

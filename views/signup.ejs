@@ -1,44 +1,36 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <% include ./partials/header %>
+  <% include ./partials/header %>
   </head>
 
-  <body class="container-fluid">
-    <header>
-      <% include ./partials/nav %>
-    </header>
+  <body class="container-fluid signup">
+  <% include ./partials/nav %>
 
-    <main>
+  <main class="signup_all">
+    <h1>Sign up</h1>
+    <form method="post" action="/signup">
+    <div class="contentBox">
+      <h2 class="contecntBoxTop"> Create An Account For New User</h2>
+      <div class="buttons">
+      <button type="submit" class="btn btn-default">Sign up</button>
+      </div>
 
-        <h2>Signup</h2>
-        <form method="post" action="/signup">
-          <div class="contentBox">
-            <h3 class="contecntBoxTop"> New User</h3>
-            <div class="buttons">
-              <button type="submit" class="btn btn-default">Sign up</button>
-            </div>
+    <div class="form-group singup_schema">
+      <label for="username"><h3>Username</h3></label>
+      <input class="form-control" type="text" name="username" placeholder="Your username">
+    </div>
 
+    <div class="form-group singup_schema">
+      <label for="password"><h3>Password</h3></label>
+      <input class="form-control" type="password" name="password" placeholder="You password">
+    </div>
+      <!-- password confirmation있었으면 좋았을걸  기입창이 하나밖에 없음-->
 
+    </div>
+  </form>
 
-          <div class="form-group">
-            <label for="username">user name</label>
-            <input class="form-control" type="text" name="username" id="username">
-          </div>
+</main>
 
-          <div class="form-group">
-            <label for="password">Password</label>
-            <input class="form-control" type="password" name="password" id="password">
-          </div>
-            <!-- password confirmation있었으면 좋았을걸  기입창이 하나밖에 없음-->
-
-          </div>
-        </form>
-
-    </main>
-
-    <footer>
-      <% include ./partials/footer %>
-    </footer>
-  </body>
+</body>
 </html>

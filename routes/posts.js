@@ -10,7 +10,6 @@ function makeError(res, message, status) {
   return error;
 }
 
-
 // Index
 router.get('/', function(req, res, next){
   // get all the posts and render the incex view
