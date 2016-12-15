@@ -12,6 +12,7 @@ var UserSchema = new mongoose.Schema({
   }
 });
 
+// To add email and password confirmation 
 // var UserSchema = new mongoose.Schema({
 //   local : {
 //     username : { type    : String,

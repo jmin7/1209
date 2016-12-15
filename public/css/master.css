@@ -14,24 +14,35 @@ font-family: 'Kaushan Script', cursive;
   margin-top: 20px;
   color : #A34CFF;
   font-family: 'Courgette', cursive;
-  font-size: 70px;
+  font-size: 60px;
+  text-align: right;
   border-bottom: 1px solid gray;
 }
 
 .home_title2 {
-  margin-top: 45px;
+  margin-top: 40px;
   color : pink;
   /*text-shadow: 3px;*/
   font-family: 'Courgette', cursive;
   font-size: 70px;
   border-bottom: 1px solid gray;
-
 }
 
-.home_body {
+.home_body1 {
+  margin: 3em 7em 0 20px;
+  font-family: 'Kaushan Script', cursive;
+  font-size: 25px;
+  text-align: right;
+}
+
+.home_body2 {
   margin: 30px 20px 0 20px;
   font-family: 'Kaushan Script', cursive;
   font-size: 25px;
+}
+
+.home_about_body {
+
 }
 
 body { height: 100%; margin: 0px; padding: 0px; }
