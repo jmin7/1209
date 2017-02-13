@@ -17,7 +17,6 @@ var homeRouter  = require('./routes/home');
 var postsRouter = require('./routes/posts');
 var photosRouter = require('./routes/photos');
 var seedDB      = require('./seeds');
-var todosRouter = require('./routes/todos');
 
 
 // Connect to database -- heroku
@@ -84,8 +83,6 @@ app.use(function (req, res, next) {
 app.use('/', homeRouter);
 app.use('/posts', postsRouter);
 app.use('/blogs', photosRouter);
-app.use('/todos', todosRouter);
-
 
 
 // catch 404 and forward to error handler

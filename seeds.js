@@ -1,8 +1,6 @@
 var mongoose = require('mongoose');
 var photo = require('./models/Photo');
 var post = require('./models/Post');
-var Todo = require('./models/Todo');
-
 
 var photoData = [
   { title: "Cute illustration",
