@@ -2,7 +2,7 @@
 
 ## [TTraveloGG WebSite]
 
-Click <a href=https://thawing-mesa-70262.herokuapp.com/>TTraveloGG</a>
+Click <a href=https://ttravelogg.herokuapp.com>TTraveloGG</a>
 
 
 ## [Project description]
