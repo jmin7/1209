@@ -1,28 +1,41 @@
 <!DOCTYPE html>
 <html>
-  <head>
-      <% include ../partials/header %>
-   </head>
 
-  <body class="photos_index">
-      <% include ../partials/nav %>
+<head>
+    <% include ../partials/header %>
+</head>
 
-  <div class="container photo">
-      <% include ./partials/pheader ﻿%>
+<body class="photos_index">
+    <% include ../partials/nav %>
 
-   <div class="buttons">
-    <a class="btn btn-primary btn-lg" href="/blogs/new">Add a photo</a>
-   </div>
+        <div class="container photo">
+            <% include ./partials/pheader ﻿%>
 
-  <div class="photo_index_pic">
-       <% blogs.forEach(function(blog) { %>
-    <a href="/blogs/<%= blog._id %>"><div class="photo_index_title"><%= blog.title %></div></a>
-    <div class="photo_index_time">
-       <%= blog.createdAt %></div>
-    <div class="blog-image"><img class ="thumbnail pic" src = <%= blog.image %> ></div>
-       <% }) %>
-  </div>
- </div>
+                <div class="buttons">
+                    <a class="btn btn-primary btn-lg" href="/blogs/new">Add new photo</a>
+                </div>
+
+                <div class="container">
+                    <div class="row">
+
+                        <% blogs.forEach(function(blog) { %>
+                            <div class="col-md-6 photo_index_pic">
+                                <a href="/blogs/<%= blog._id %>">
+                                    <div class="photo_index_title">
+                                        <%= blog.title %>
+                                    </div>
+                                </a>
+                                <div class="photo_index_time">
+                                    <%= blog.createdAt %>
+                                </div>
+                                <div class="blog-image"><img class="thumbnail pic" src=<%=blog.image %> ></div>
+                            </div>
+                            <% }) %>
+
+                    </div>
+
+                </div>
 
 </body>
+
 </html>

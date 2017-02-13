@@ -1,45 +1,41 @@
 <!DOCTYPE html>
 <html>
- <head>
-  <% include ../partials/header %>
- </head>
+  <head>
+      <% include ../partials/header %>
+  </head>
 
- <body class="photos_index">
-    <% include ../partials/nav %>
+  <body class="photos_index">
+      <% include ../partials/nav %>
 
-  <div class="container photo">
-     <% include ./partials/pheader %>
+          <div class="container photo">
+              <% include ./partials/pheader %>
 
-   <div class="buttons">
-    <a class="btn btn-default" href="/blogs">Back to the List</a>
-    <a class="btn btn-default" href="/blogs/<%= blog._id %>/edit">Edit</a>
-    <form action="/blogs/<%= blog._id %>?_method=delete" method="post">
-     <a class="btn btn-default" href="#"
-     onclick="confirm('Do you want to delete this?')?this.parentElement.submit():null;">Delete</a>
-    </form>
-   </div>
+              <div class="buttons">
+                  <a class="btn btn-default" href="/blogs">Back to the List</a>
+                  <a class="btn btn-default" href="/blogs/<%= blog._id %>/edit">Edit</a>
+                  <form action="/blogs/<%= blog._id %>?_method=delete" method="post">
+                      <a class="btn btn-default" href="#" onclick="confirm('Do you want to delete this?')?this.parentElement.submit():null;">Delete</a>
+                  </form>
+              </div>
 
-   <div>
-    <div class="photo_title"><%= blog.title %></div>
-
-    <div><img class="photo_show_pic" src=<%= blog.image %>></div>
-    <div class="photo_info">
-    <div><span>Created</span> : <%= blog.createdAt %></div>
-       <% if(blog.updatedAt) { %>
-    <div><span>Updated</span> : <%= blog.updatedAt %></div>
-       <% } %>
-    </div> <!-- photo_info end -->
-
-    <div class="photo_body"><%= blog.body %></div>
-  </div>
-
-    <!-- commentbox -->
-    <div id="HCB_comment_box"><a href="http://www.htmlcommentbox.com">Widget</a> is loading comments...</div>
-    <link rel="stylesheet" type="text/css" href="//www.htmlcommentbox.com/static/skins/bootstrap/twitter-bootstrap.css?v=0" />
-    <script type="text/javascript" id="hcb"> /*<!--*/ if(!window.hcb_user){hcb_user={};} (function(){var s=document.createElement("script"), l=hcb_user.PAGE || (""+window.location).replace(/'/g,"%27"), h="//www.htmlcommentbox.com";s.setAttribute("type","text/javascript");s.setAttribute("src", h+"/jread?page="+encodeURIComponent(l).replace("+","%2B")+"&opts=16862&num=10&ts=1481648354948");if (typeof s!="undefined") document.getElementsByTagName("head")[0].appendChild(s);})(); /*-->*/ </script>
-    <br><br><br>
-    <!--end commentbox -->
-  </div> <!-- contentBox end -->
-
- </body>
+              <section>
+                  <div class="photo_title">
+                      <%= blog.title %>
+                  </div>
+                  <div><img class="photo_show_pic" src=<%=blog.image %>></div>
+                  <div class="photo_info">
+                      <div><span>Created</span> :
+                          <%= blog.createdAt %>
+                      </div>
+                      <% if(blog.updatedAt) { %>
+                          <div><span>Updated</span> :
+                              <%= blog.updatedAt %>
+                          </div>
+                          <% } %>
+                  </div>
+                  <div class="photo_body">
+                      <%= blog.body %>
+                  </div>
+              </section>
+    </body>
 </html>
