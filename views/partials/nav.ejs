@@ -28,8 +28,7 @@
       <ul class="nav navbar-nav navbar-right">
           <% if (currentUser) { %>
         <li><a href="/secret"><%= currentUser.local.username %></a></li>
-              <!-- 나중에 local이 아닌 다른 곳 (페이스북 등)의 email을 가져올 수도 있으니까
-               현재는 없더라도 일단 local로 한정지어놓음 -->
+        
         <li><a href='/logout'>Logout</a></li>
          <% } else { %>
         <li><a href='/login'>Login</a></li>

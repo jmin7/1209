@@ -12,7 +12,9 @@
             <% include ./partials/pheader ﻿%>
 
                 <div class="buttons">
+                  <% if (currentUser) { %>
                     <a class="btn btn-primary btn-lg" href="/blogs/new">Add new photo</a>
+                  <% } %>
                 </div>
 
                 <div class="container">
