@@ -1,43 +1,55 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <% include ../partials/header %>
-  </head>
-  <body class="posts_index">
+</head>
+
+<body class="posts_index">
     <% include ../partials/nav %>
 
-    <div class="container post post-show">
-      <% include ./partials/pheader %>
+        <div class="container post post-show">
+            <% include ./partials/pheader %>
 
-    <div class="buttons">
-      <a class="btn btn-default" href="/posts">Back to the List</a>
-      <a class="btn btn-default" href="/posts/<%= post._id %>/edit">Edit</a>
-      <form action="/posts/<%= post._id %>?_method=delete" method="post">
-       <a class="btn btn-default" href="#" onclick="confirm('Do you want to delete this?')?this.parentElement.submit():null;">Delete</a>
-      </form>
-    </div>
+                <div class="buttons">
+                    <a class="btn btn-default" href="/posts">Back to the List</a>
+                    <a class="btn btn-default" href="/posts/<%= post._id %>/edit">Edit</a>
+                    <form action="/posts/<%= post._id %>?_method=delete" method="post">
+                        <a class="btn btn-default" href="#" onclick="confirm('Do you want to delete this?')?this.parentElement.submit():null;">Delete</a>
+                    </form>
+                </div>
 
-    <div class="post_show">
-    <div class="post_show_title"><%= post.title %></div>
+                <div class="post_show">
+                    <div class="post_show_title">
+                        <%= post.title %>
+                    </div>
 
-    <div class="row">
+                    <div class="row">
 
-    <div class="col-sm-3 col-sm-push-9">
-    <div class="post_info">
-    <div><span>Created</span> : <%= post.createdAt %></div>
-     <% if(post.updatedAt) { %>
-    <div><span>Updated</span> : <%= post.updatedAt %></div>
-     <% } %>
-    </div>
-   </div>
+                        <div class="col-sm-3 col-sm-push-9">
+                            <div class="post_info">
+                                <div><span>Created</span> :
+                                    <%= post.createdAt %>
+                                </div>
+                                <% if(post.updatedAt) { %>
+                                    <div><span>Updated</span> :
+                                        <%= post.updatedAt %>
+                                    </div>
+                                    <% } %>
+                            </div>
+                        </div>
 
-   <div class="col-sm-9 col-sm-pull-3">
-    <div class="post_show_body"><%= post.body %></div>
-   </div>
+                        <div class="col-sm-9 col-sm-pull-3">
+                            <div class="post_show_body">
+                                <%= post.body %>
+                            </div>
+                        </div>
 
-  </div>
-</div> <!-- post_show -->
+                    </div>
+                </div>
+                <!-- post_show -->
 
-</div>
+        </div>
 </body>
+
 </html>
